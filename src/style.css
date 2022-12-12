@@ -1,3 +1,36 @@
-h1 {
-  color: peru;
+.container,
+.small {
+  max-width: 600px;
+  margin: 30px auto;
+}
+.card {
+  border-radius: 12px;
+}
+.city {
+  padding-top: 20px;
+}
+.current-temp {
+  font-size: 50px;
+}
+.col {
+  text-align: center;
+}
+.card-body {
+  padding-bottom: 0;
+}
+.units {
+  padding-left: 15px;
+}
+.emoji {
+  font-size: 35px;
+}
+.temp {
+  color: gray;
+  font-size: 12px;
+  font-weight: 500;
+  padding-bottom: 25px;
+}
+
+.btn-success {
+  padding: 5px 10px;
 }
