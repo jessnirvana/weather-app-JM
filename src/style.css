@@ -33,7 +33,8 @@
   padding-bottom: 25px;
 }
 
-.btn-success {
+.btn-success,
+.btn-primary {
   padding: 5px 10px;
 }
 #date {
