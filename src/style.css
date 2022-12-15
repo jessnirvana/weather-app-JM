@@ -40,3 +40,10 @@
 #date {
   margin-left: 3px;
 }
+
+.active,
+.active:hover {
+  color: black;
+  text-decoration: none;
+  cursor: default;
+}
