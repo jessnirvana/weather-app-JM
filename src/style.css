@@ -26,12 +26,6 @@
 .emoji {
   font-size: 35px;
 }
-.temp {
-  color: gray;
-  font-size: 12px;
-  font-weight: 500;
-  padding-bottom: 25px;
-}
 
 .btn-success,
 .btn-primary {
@@ -46,4 +40,23 @@
   color: black;
   text-decoration: none;
   cursor: default;
+}
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: black;
+}
+
+.weather-forecast-date {
+  opacity: 0.6;
+}
+.temp {
+  font-size: 12px;
+  font-weight: 500;
+  padding-bottom: 25px;
+}
+
+.min-temp {
+  opacity: 0.6;
 }
