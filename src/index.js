@@ -14,6 +14,49 @@ if (minutes < 10) {
 
 document.getElementById("date").innerHTML = `${day} ${hours}:${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class= "row" >`;
+
+  forecastHTML =
+    forecastHTML +
+    `  <div class="col-2 day">
+            <div class="weather-forecast-date">
+            Mon </div>
+            <img 
+            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+           alt=""
+           width="36"
+           />
+            <div class="temp">
+                <span class="max-temp">74°</span>
+                <span class="min-temp"> | 47°</span>
+          </div>
+        </div>
+    `;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastHTML =
+    forecastHTML +
+    `  
+          <div class="col-2 day">
+            <div class="weather-forecast-date">
+            Mon </div>
+            <img 
+            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+           alt=""
+           width="36"
+           />
+            <div class="temp">
+                <span class="max-temp">74°</span>
+                <span class="min-temp"> | 47°</span>
+          </div>
+        </div>
+   `;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayWeather(response) {
   document.querySelector(".city").innerHTML = response.data.name;
 
@@ -93,3 +136,5 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheit);
 
 searchCity("New York");
+
+displayForecast();
