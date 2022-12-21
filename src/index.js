@@ -15,24 +15,26 @@ if (minutes < 10) {
 document.getElementById("date").innerHTML = `${day} ${hours}:${minutes}`;
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class= "row" >`;
-  let days = ["Mon", "Tues", "Wed"];
-  days.forEach(function (day) {
+
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `  <div class="col-2 day">
             <div class="weather-forecast-date">
-            ${day} </div>
+            ${forecastDay.dt} </div>
             <img 
-            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+            src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
            alt=""
            width="36"
            />
             <div class="temp">
-                <span class="max-temp">74°</span>
-                <span class="min-temp"> | 47°</span>
+                <span class="max-temp">${forecastDay.temperature.maximum}°</span>
+                <span class="min-temp"> | ${forecastDay.temperature.minimum}°</span>
           </div>
         </div>
     `;
@@ -44,7 +46,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "39eof5f5eee3879640834b438e6a5at6";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
