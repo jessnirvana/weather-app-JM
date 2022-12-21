@@ -14,7 +14,7 @@ if (minutes < 10) {
 
 document.getElementById("date").innerHTML = `${day} ${hours}:${minutes}`;
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class= "row" >`;
@@ -42,6 +42,12 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "39eof5f5eee3879640834b438e6a5at6";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeather(response) {
   document.querySelector(".city").innerHTML = response.data.name;
 
@@ -61,6 +67,8 @@ function displayWeather(response) {
   fahrenheitTemp = response.data.main.temp;
   let tempElement = document.querySelector("#currentTemperature");
   tempElement.innerHTML = Math.round(fahrenheitTemp);
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -121,5 +129,3 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheit);
 
 searchCity("New York");
-
-displayForecast();
