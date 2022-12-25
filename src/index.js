@@ -21,23 +21,31 @@ function displayForecast(response) {
 
   let forecastHTML = `<div class= "row" >`;
 
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `  <div class="col-2 day">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `  <div class="col-2 day">
             <div class="weather-forecast-date">
-            ${forecastDay.dt} </div>
+            ${days[index]} </div>
             <img 
-            src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+              forecastDay.condition.icon
+            }.png"
            alt=""
            width="36"
            />
             <div class="temp">
-                <span class="max-temp">${forecastDay.temperature.maximum}°</span>
-                <span class="min-temp"> | ${forecastDay.temperature.minimum}°</span>
+                <span class="max-temp">${Math.round(
+                  forecastDay.temperature.maximum
+                )}°</span>
+                <span class="min-temp"> | ${Math.round(
+                  forecastDay.temperature.minimum
+                )}°</span>
           </div>
         </div>
     `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -46,7 +54,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "39eof5f5eee3879640834b438e6a5at6";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
