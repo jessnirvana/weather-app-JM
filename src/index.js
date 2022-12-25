@@ -113,29 +113,4 @@ form.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", searchCurrentLocation);
 
-function showCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#currentTemperature");
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-}
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.add("active");
-  celsiusLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#currentTemperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
-let fahrenheitTemp = null;
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsius);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheit);
-
 searchCity("New York");
