@@ -1,3 +1,8 @@
+html,
+body {
+  background: #d5def5;
+}
+
 .container,
 .small {
   max-width: 600px;
@@ -12,6 +17,7 @@
 .current-temp {
   font-size: 50px;
   padding-top: 11px;
+  color: #895df1;
 }
 .col {
   text-align: center;
@@ -22,6 +28,7 @@
 .units {
   padding-left: 4px;
   padding-top: 18px;
+  color: #895df1;
 }
 .emoji {
   font-size: 35px;
@@ -55,6 +62,7 @@
   font-size: 12px;
   font-weight: 500;
   padding-bottom: 25px;
+  color: #895df1;
 }
 
 .min-temp {
